@@ -15,12 +15,20 @@ import { NgxLoadingModule, ngxLoadingAnimationTypes } from 'ngx-loading';
 //
 import { environment } from 'src/environments/environment';
 import { RouterModule } from '@angular/router';
+import { ContactUsComponent } from './pages/contact-us/contact-us.component';
+import { HomeComponent } from './pages/home/home.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { FooterComponent } from './shared/footer/footer.component';
 var appRoutes;
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ContactUsComponent,
+    HomeComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

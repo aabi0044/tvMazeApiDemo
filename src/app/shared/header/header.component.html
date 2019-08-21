@@ -1,0 +1,76 @@
+<header class="navbar navbar-inverse navbar-fixed-top">
+  <!-- Left Header Navigation -->
+  <ul class="nav navbar-nav-custom">
+      <!-- Main Sidebar Toggle Button -->
+      <!-- <li>
+          <a href="javascript:void(0)" onclick="App.sidebar('toggle-sidebar');this.blur();">
+              <i class="fa fa-ellipsis-v fa-fw animation-fadeInRight" id="sidebar-toggle-mini"></i>
+              <i class="fa fa-bars fa-fw animation-fadeInRight" id="sidebar-toggle-full"></i>
+          </a>
+      </li> -->
+      <!-- END Main Sidebar Toggle Button -->
+
+      <!-- Header Link -->
+      <li class="hidden-xs animation-fadeInQuick">
+
+          <img class="sidelogo" src="../../../assets/img/tvm-header-logo.png">
+      </li>
+      <li class="dropdown" #menu (click)="openMenu()" style="    margin-left: 15px;">
+        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+            <!-- <img src="img/placeholders/avatars/avatar9.jpg" alt="avatar"> -->
+            Menu
+        </a>
+        <ul class="dropdown-menu dropdown-menu-right">
+            <li class="dropdown-header">
+                <strong>Choose Menu</strong>
+            </li>
+            <li>
+                <a href="page_app_email.html">
+                    <i class="fa fa-user fa-fw pull-right"></i>
+                    People
+                </a>
+            </li>
+            <li>
+                <a href="page_app_social.html">
+                    <!-- <i class="fas fa-photo-video  pull-right"></i> -->
+                    <i class="fa fa-television pull-right"></i>
+                    <!-- <i class="fa fa-pencil-square fa-fw pull-right"></i> -->
+                    Shows
+                </a>
+            </li>
+
+        </ul>
+    </li>
+      <!-- END Header Link -->
+  </ul>
+  <!-- END Left Header Navigation -->
+
+  <!-- Right Header Navigation -->
+  <ul class="nav navbar-nav-custom pull-right">
+      <!-- Search Form -->
+
+      <!-- END Search Form -->
+
+      <!-- Alternative Sidebar Toggle Button -->
+
+      <!-- END Alternative Sidebar Toggle Button -->
+
+      <li class="dropdown">
+        <a routerLink="/login" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            Login
+        </a>
+
+    </li>
+    <li class="dropdown">
+      <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+          Logout
+      </a>
+
+  </li>
+      <!-- User Dropdown -->
+
+
+      <!-- END User Dropdown -->
+  </ul>
+  <!-- END Right Header Navigation -->
+</header>
