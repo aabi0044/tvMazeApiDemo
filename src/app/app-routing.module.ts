@@ -28,7 +28,7 @@ const routes: Routes = [ {
       component:ShowsComponent
     },
     {
-      path:'show-details',
+      path:'show-details/:id',
       component:SingleShowComponent
     },
     {

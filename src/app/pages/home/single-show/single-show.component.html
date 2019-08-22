@@ -1,1 +1,72 @@
-<p>single-show works!</p>
+<div id="page-content-sidebar" style="margin-top: 55px ; padding: 0px">
+    <!-- Collapsible Shopping Cart -->
+
+    <div id="shopping-cart" class="collapse navbar-collapse remove-padding" >
+        <h4 class="inner-sidebar-header" style="padding: 15px">
+            <i class="hi hi-star-empty"></i>
+       <b>Episodes List   </b>
+        </h4>
+        <table class="table table-striped table-borderless table-vcenter">
+          <thead>
+            <tr>
+              <td>
+
+              </td>
+              <td class="text-center" style="padding-right: 0px"> Name</td>
+              <td class="text-left" style="padding-left: 0px"> Rating</td>
+            </tr>
+          </thead>
+            <tbody>
+                <tr *ngFor="let item of topRated" (click)="showDetails(item.id)">
+
+                    <td style="width: 80px;" >
+
+                            <img [src]="item.image.original"  alt="Image" class="img-responsive center-block" style="max-width: 50px;">
+
+                    </td>
+                    <td style="width: 80px;" class="text-center" >
+                        <!-- <input type="text" class="form-control text-center" value="1"> -->
+                        <p style="margin:0px ;"> {{item.name}}</p>
+                    </td>
+                    <td class="text-left">
+                        <strong>{{item.rating.average}}</strong>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+    <!-- END Collapsible Shopping Cart -->
+</div>
+<div class="row"  style="margin-top: 35px ; padding: 0px" *ngIf="showDetail" >
+<div class="widget-content border-bottom text-center themed-background-muted">
+    <img [src]="showDetail.image.original" alt="avatar" class=" img-thumbnail img-thumbnail-avatar-2x">
+    <h2 class="widget-heading h3 text-dark">{{showDetail.name}}({{showDetail.rating.average}})</h2>
+    <span class="text-muted">
+        <strong *ngIf="showDetail.genres.length==1">{{showDetail.genres[0]}}</strong>
+        <strong *ngIf="showDetail.genres.length==2">{{showDetail.genres[0]}} , {{showDetail.genres[1]}}</strong>
+        <strong *ngIf="showDetail.genres.length==3">{{showDetail.genres[0]}} , {{showDetail.genres[1]}}, {{showDetail.genres[2]}}</strong>
+        <strong *ngIf="showDetail.genres.length==4">{{showDetail.genres[0]}}, {{showDetail.genres[1]}}, {{showDetail.genres[2]}} ,{{showDetail.genres[3]}}</strong>
+        <strong *ngIf="showDetail.genres.length==5 || showDetail.genres.length==6  ">{{showDetail.genres[0]}} ,{{showDetail.genres[1]}} ,{{showDetail.genres[2]}} ,{{showDetail.genres[3]}} ,{{showDetail.genres[4]}}</strong>
+
+    </span>
+
+</div>
+<div class="col-sm-12 col-lg-12" style="    padding: 5px 0px 0px 0px;">
+    <a href="javascript:void(0)" class="widget">
+        <div class="widget-content widget-content-mini themed-background-muted">
+            <span class="pull-right text-muted" *ngIf="seasons">   <b style="color:teal">({{showDetail.status}}) </b> Total Seasons: <b style="color: steelblue">{{seasons.length}}</b></span>
+            <strong class="text-dark">Seasons</strong>
+        </div>
+        <div class="widget-content text-right clearfix" *ngFor="let item of seasons;let i=index">
+            <div class="widget-icon  pull-left">
+                <!-- <i class="gi gi-airplane text-light-op"></i> -->
+                <img [src]="item.image.original" class="img-responsive center-block" style="max-width: 50px;">
+            </div>
+            <h2 class="widget-heading h3 themed-color-social"><strong>Season: {{i+1}}</strong></h2>
+            <span class="text-muted">Episodes: {{item.episodeOrder}}</span>
+        </div>
+    </a>
+</div>
+</div>

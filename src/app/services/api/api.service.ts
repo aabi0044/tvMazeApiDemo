@@ -18,10 +18,29 @@ export class ApiService {
   getAllShows(){
     return this.http.get<any>('http://api.tvmaze.com/shows');
   }
+  getSingleShow(id){
+    return this.http.get<any>('http://api.tvmaze.com/shows/'+id);
+  }
+  getShowSeasons(id){
+    return this.http.get<any>('http://api.tvmaze.com/shows/'+id+'/seasons');
+  }
+  getShowCast(id){
+    return this.http.get<any>('http://api.tvmaze.com/shows/'+id+'/cast');
+  }
+  getShowCrew(id){
+    return this.http.get<any>('http://api.tvmaze.com/shows/'+id+'/crew');
+  }
+  getShowAKA(id){
+    return this.http.get<any>('http://api.tvmaze.com/shows/'+id+'/akas');
+  }
+  getSeasonEpisodes(id){
+    return this.http.get<any>('http://api.tvmaze.com/seasons/'+id+'/episodes');
+  }
+
   getAllPeople(){
     return this.http.get<any>('http://api.tvmaze.com/people');
   }
   getUpdates(){
-    return this.http.get<any>('http://api.tvmaze.com/updates/shows');
+    return this.http.get<any>('http://api.tvmaze.com/shows/1/crew');
   }
 }

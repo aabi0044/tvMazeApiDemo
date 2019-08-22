@@ -52,10 +52,10 @@ import { ContentComponent } from './pages/home/content/content.component';
     AngularFirestoreModule,
     RouterModule.forRoot([]),
     NgxLoadingModule.forRoot({
-      animationType: ngxLoadingAnimationTypes.wanderingCubes,
+      animationType: ngxLoadingAnimationTypes.circleSwish,
       backdropBackgroundColour: 'rgba(0,0,0,0.1)',
       backdropBorderRadius: '4px',
-      primaryColour: '#ffffff',
+      primaryColour: '#5CCDDE',
       secondaryColour: '#ffffff',
       tertiaryColour: '#ffffff'
   }),

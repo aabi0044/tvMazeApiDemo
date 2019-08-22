@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api/api.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-content',
@@ -9,9 +11,10 @@ import { ApiService } from 'src/app/services/api/api.service';
 export class ContentComponent implements OnInit {
 shows;
 topRated;
-  constructor(private api:ApiService) { }
+  constructor(private api:ApiService,private router:Router) { }
 
   ngOnInit() {
+
     // this.getUpdates();
     this.getShows();
   }
@@ -24,6 +27,8 @@ getShows(){
   this.api.getAllShows().subscribe(res=>{
     console.log(res);
     this.shows=res;
+
+
     this.topRatedShows();
   })
 }
@@ -33,5 +38,14 @@ topRatedShows(){
   return elem.rating.average >= 8;
 })
 console.log(this.topRated);
+}
+showDetails(id){
+  if(localStorage.getItem('userId')!=undefined){
+this.router.navigate(['home/show-details/'+id]);
+  }
+  else{
+    this.router.navigate(['/login']);
+  }
+console.log(id);
 }
 }

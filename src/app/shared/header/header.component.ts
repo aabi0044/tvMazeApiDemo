@@ -31,8 +31,8 @@ loading=false;
 
 
   getUser(){
-    this.loading=true;
 
+this.loading=true;
 this.api.getUser(localStorage.getItem('userId')).subscribe((res:any)=>{
 this.user=res;
 this.loading=false;
