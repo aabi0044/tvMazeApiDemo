@@ -1,7 +1,7 @@
 <div id="login-container">
     <!-- Login Header -->
     <h1 class="h2 text-light text-center push-top-bottom animation-slideDown">
-        <i class="fa fa-cube"></i> <strong>Welcome to AppUI</strong>
+        <img src="../../../assets/img/tvm-header-logo.png"> <strong>Welcome to App</strong>
     </h1>
     <!-- END Login Header -->
 
@@ -10,8 +10,8 @@
         <!-- Login Title -->
         <div class="block-title">
             <div class="block-options pull-right">
-                <a href="page_ready_reminder.html" class="btn btn-effect-ripple btn-primary" data-toggle="tooltip" data-placement="left" title="" style="overflow: hidden; position: relative;" data-original-title="Forgot your password?"><i class="fa fa-exclamation-circle"></i></a>
-                <a href="page_ready_register.html" class="btn btn-effect-ripple btn-primary" data-toggle="tooltip" data-placement="left" title="" style="overflow: hidden; position: relative;" data-original-title="Create new account"><i class="fa fa-plus"></i></a>
+                <!-- <a href="page_ready_reminder.html" class="btn btn-effect-ripple btn-primary" data-toggle="tooltip" data-placement="left" title="" style="overflow: hidden; position: relative;" data-original-title="Forgot your password?"><i class="fa fa-exclamation-circle"></i></a> -->
+                <!-- <a href="page_ready_register.html" class="btn btn-effect-ripple btn-primary" data-toggle="tooltip" data-placement="left" title="" style="overflow: hidden; position: relative;" data-original-title="Create new account"><i class="fa fa-plus"></i></a> -->
             </div>
             <h2>Please Login</h2>
         </div>
@@ -21,24 +21,20 @@
         <form id="form-login" action="index.html" method="post" class="form-horizontal" novalidate="novalidate">
             <div class="form-group">
                 <div class="col-xs-12">
-                    <input type="text" id="login-email" name="login-email" class="form-control" placeholder="Your email..">
+                    <input type="text" [(ngModel)]="email" id="login-email" name="login-email" class="form-control" placeholder="Your email..">
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-xs-12">
-                    <input type="password" id="login-password" name="login-password" class="form-control" placeholder="Your password..">
+                    <input type="password" [(ngModel)]="password" id="login-password" name="login-password" class="form-control" placeholder="Your password..">
                 </div>
             </div>
             <div class="form-group form-actions">
                 <div class="col-xs-8">
-                    <label class="csscheckbox csscheckbox-primary">
-                        <input type="checkbox" id="login-remember-me" name="login-remember-me">
-                        <span></span>
-                    </label>
-                    Remember Me?
+<p> Don't have account ? </p> <a routerLink="/signup">SignUp</a>
                 </div>
                 <div class="col-xs-4 text-right">
-                    <button type="submit" class="btn btn-effect-ripple btn-sm btn-primary" style="overflow: hidden; position: relative;"><i class="fa fa-check"></i> Let's Go</button>
+                    <button type="submit" (click)="login()" class="btn btn-effect-ripple btn-sm btn-primary" style="overflow: hidden; position: relative;"><i class="fa fa-check"></i> Let's Go</button>
                 </div>
             </div>
         </form>
@@ -48,7 +44,7 @@
 
     <!-- Footer -->
     <footer class="text-muted text-center animation-pullUp">
-        <small><span id="year-copy">2014-19</span> © <a href="https://1.envato.market/DXa" target="_blank">AppUI 2.9</a></small>
+        <small><span id="year-copy">2019</span> © <a >TVMaze</a></small>
     </footer>
     <!-- END Footer -->
 </div>

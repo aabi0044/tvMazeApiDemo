@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/services/api/api.service';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
-  constructor() { }
+user;
+loading=false;
+  constructor(private api:ApiService) { }
 
   ngOnInit() {
+// if(localStorage.getItem('userId')!=undefined){
+//   this.getUser();
+// }
+  }
+  getUser(){
+    this.loading=true;
+
+this.api.getUser(localStorage.getItem('userId')).subscribe((res:any)=>{
+this.user=res;
+this.loading=false;
+console.log(this.user);
+})
   }
 
 }

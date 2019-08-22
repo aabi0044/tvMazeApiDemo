@@ -5,14 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
-
+import {FormsModule} from '@angular/forms';
 
 // firebaseIntegration
 import { AngularFireModule } from '@angular/fire'
 import { AngularFireAuthModule } from '@angular/fire/auth'
 import { AngularFirestoreModule } from '@angular/fire/firestore'
 import { NgxLoadingModule, ngxLoadingAnimationTypes } from 'ngx-loading';
-//
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { environment } from 'src/environments/environment';
 import { RouterModule } from '@angular/router';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
@@ -32,6 +34,7 @@ var appRoutes;
   ],
   imports: [
     BrowserModule,
+    FormsModule,
 
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -45,7 +48,9 @@ var appRoutes;
       primaryColour: '#ffffff',
       secondaryColour: '#ffffff',
       tertiaryColour: '#ffffff'
-  })
+  }),
+  ToastrModule.forRoot(),
+  BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
