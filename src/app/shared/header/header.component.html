@@ -43,6 +43,11 @@
 
         </ul>
     </li>
+    <li>
+        <form action="page_ready_search_results.html" method="post" class="navbar-form-custom">
+            <input type="text" id="top-search" (input)="onSearchChange($event.target.value)" name="top-search" class="form-control" placeholder="Search shows..">
+        </form>
+    </li>
       <!-- END Header Link -->
   </ul>
   <!-- END Left Header Navigation -->

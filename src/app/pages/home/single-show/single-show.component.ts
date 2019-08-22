@@ -42,7 +42,10 @@ export class SingleShowComponent implements OnInit {
       this.seasons = res;
       this.seasons.map((elem) => {
         if (elem.image == null) {
-          return elem['image'] = '../../../../assets//img/dummy.jpg';
+          return elem['images'] = '../../../../assets//img/dummy.jpg';
+        }
+        else{
+          return elem['images'] = elem.image.original;
         }
       })
       res.forEach(elements => {
@@ -72,6 +75,14 @@ export class SingleShowComponent implements OnInit {
     this.api.getShowCast(id).subscribe(res => {
       console.log(res);
       this.cast = res;
+      this.cast.map((elem) => {
+        if (elem.character.image == null) {
+          return elem['images'] = '../../../../assets//img/user.png';
+        }
+        else{
+          return elem['images'] = elem.character.image.original;
+        }
+      })
     })
   }
   getShowCrew(id) {

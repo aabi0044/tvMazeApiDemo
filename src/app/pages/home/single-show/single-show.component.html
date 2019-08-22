@@ -55,8 +55,8 @@
         <div class="widget-content text-right clearfix" *ngFor="let item of seasons;let i=index">
             <div class="  pull-left">
                 <!-- <i class="gi gi-airplane text-light-op"></i> -->
-                <img [src]="item.image.original" *ngIf="item.image.original" class="img-responsive center-block" style="max-width: 50px;">
-                <img [src]="item.image" *ngIf="!item.image.original" class="img-responsive center-block" style="max-width: 50px;">
+                <!-- <img [src]="item.image.original" *ngIf="item.image.original" class="img-responsive center-block" style="max-width: 50px;"> -->
+                <img [src]="item.images"  class="img-responsive center-block" style="max-width: 50px;">
             </div>
             <h2 class="widget-heading h3 themed-color-social"><strong>Season: {{item.number}}</strong></h2>
             <span class="text-muted">Episodes: {{item.episodeOrder}}</span>
@@ -76,7 +76,7 @@
 
                       <td style="width: 80px;" >
 
-                              <img [src]="item.character.image.original"  alt="Image" class="img-responsive center-block" style="max-width: 50px;max-height: 50px;">
+                              <img [src]="item.images"  alt="Image" class="img-responsive center-block" style="max-width: 50px;max-height: 50px;">
 
                       </td>
                       <td style="width: 180px;" class="text-center" >

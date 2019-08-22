@@ -11,9 +11,12 @@ export class HeaderComponent implements OnInit {
   constructor(public renderer: Renderer,private api:ApiService) { }
   user;
 loading=false;
+shows;
   ngOnInit() {
+    this.getShows();
     if(localStorage.getItem('userId')!=undefined){
       this.getUser();
+
     }
   }
   openMenu(){
@@ -38,6 +41,19 @@ this.user=res;
 this.loading=false;
 console.log(this.user);
 })
+  }
+  getShows(){
+    this.api.getAllShows().subscribe(res=>{
+      this.shows=res;
+      console.log(this.shows);
+    })
+  }
+  onSearchChange(event){
+console.log(event);
+let a = this.shows.filter((elem)=>{
+  return elem.name.toLowerCase().includes(event.toLowerCase())
+})
+console.log(a);
   }
 
 }
