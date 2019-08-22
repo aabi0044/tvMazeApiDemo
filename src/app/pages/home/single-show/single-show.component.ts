@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api/api.service';
 import { ActivatedRoute } from '@angular/router';
 
+
 @Component({
   selector: 'app-single-show',
   templateUrl: './single-show.component.html',
@@ -39,6 +40,11 @@ this.api.getSingleShow(id).subscribe(res=>{
     this.api.getShowSeasons(id).subscribe((res:any)=>{
       console.log(res);
       this.seasons=res;
+      this.seasons.map((elem)=>{
+        if(elem.image==null){
+          return elem ['image']='../../../../assets//img/dummy.jpg';
+        }
+      })
       res.forEach(elements => {
         this.api.getSeasonEpisodes(elements.id).subscribe((resp:any)=>{
           console.log(resp);

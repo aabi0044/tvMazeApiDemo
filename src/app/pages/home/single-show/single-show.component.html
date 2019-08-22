@@ -52,6 +52,7 @@
 
     </span>
 
+
 </div>
 <div class="col-sm-12 col-lg-12" style="    padding: 5px 0px 0px 0px;">
     <a href="javascript:void(0)" class="widget">
@@ -62,9 +63,10 @@
         <div class="widget-content text-right clearfix" *ngFor="let item of seasons;let i=index">
             <div class="widget-icon  pull-left">
                 <!-- <i class="gi gi-airplane text-light-op"></i> -->
-                <img [src]="item.image.original" class="img-responsive center-block" style="max-width: 50px;">
+                <img [src]="item.image.original" *ngIf="item.image.original" class="img-responsive center-block" style="max-width: 50px;">
+                <img [src]="item.image" *ngIf="!item.image.original" class="img-responsive center-block" style="max-width: 50px;">
             </div>
-            <h2 class="widget-heading h3 themed-color-social"><strong>Season: {{i+1}}</strong></h2>
+            <h2 class="widget-heading h3 themed-color-social"><strong>Season: {{item.number}}</strong></h2>
             <span class="text-muted">Episodes: {{item.episodeOrder}}</span>
         </div>
     </a>
