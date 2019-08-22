@@ -4,16 +4,39 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
+import { PeopleComponent } from './pages/home/people/people.component';
+import { ShowsComponent } from './pages/home/shows/shows.component';
+import { SingleShowComponent } from './pages/home/single-show/single-show.component';
+import { Content } from '@angular/compiler/src/render3/r3_ast';
+import { ContentComponent } from './pages/home/content/content.component';
 
 
 const routes: Routes = [ {
   path: '',
   pathMatch: 'full',
-  redirectTo: 'home'
+  redirectTo: 'home/content'
 },
 {
   path:'home',
-  component:HomeComponent
+  component:HomeComponent,children:[
+    {
+      path:'people',
+      component:PeopleComponent
+    },
+    {
+      path:'shows',
+      component:ShowsComponent
+    },
+    {
+      path:'show-details',
+      component:SingleShowComponent
+    },
+    {
+      path:'content',
+      component:ContentComponent
+    }
+
+  ]
 },
 {
   path:'login',

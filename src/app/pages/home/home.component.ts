@@ -12,6 +12,8 @@ loading=false;
   constructor(private api:ApiService) { }
 
   ngOnInit() {
+    // this.getShows();
+    // this.getPeople();
 // if(localStorage.getItem('userId')!=undefined){
 //   this.getUser();
 // }
@@ -25,5 +27,14 @@ this.loading=false;
 console.log(this.user);
 })
   }
-
+getShows(){
+  this.api.getAllShows().subscribe(res=>{
+    console.log(res);
+  })
+}
+getPeople(){
+  this.api.getAllPeople().subscribe(res=>{
+    console.log(res);
+  })
+}
 }

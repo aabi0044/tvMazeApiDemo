@@ -56,6 +56,14 @@
       <!-- Alternative Sidebar Toggle Button -->
 
       <!-- END Alternative Sidebar Toggle Button -->
+      <li class="dropdown">
+          <a routerLink="/login" class="dropdown-toggle" *ngIf="user" data-toggle="dropdown" aria-expanded="false">
+            <i class="gi gi-user"></i>
+            Welcome {{user.name | uppercase}}
+          </a>
+
+      </li>
+
 
       <li class="dropdown">
         <a routerLink="/login" class="dropdown-toggle" *ngIf="!user" data-toggle="dropdown" aria-expanded="false">
