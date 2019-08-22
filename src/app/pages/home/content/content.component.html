@@ -1,7 +1,7 @@
 <div id="page-content-sidebar" style="margin-top: 35px ; padding: 0px">
     <!-- Collapsible Shopping Cart -->
 
-    <div id="shopping-cart" class="collapse navbar-collapse remove-padding">
+    <div id="shopping-cart" class="collapse navbar-collapse remove-padding" >
         <h4 class="inner-sidebar-header">
             <i class="hi hi-star-empty"></i>
        <b>Top Rated Shows   </b>
@@ -17,7 +17,7 @@
             </tr>
           </thead>
             <tbody>
-                <tr>
+                <tr *ngFor="let item of topRated">
 
                     <td style="width: 80px;">
 
@@ -39,11 +39,11 @@
     </div>
     <!-- END Collapsible Shopping Cart -->
 </div>
-<div class="row"  style="margin-top: 35px ; padding: 0px">
+<div class="row"  style="margin-top: 35px ; padding: 0px" >
 
 
 
-      <div class="col-md-4">
+      <div class="col-md-4" *ngFor="let item of shows ">
           <a href="#modal-package" class="widget animation-fadeInQuick" data-toggle="modal">
               <div class="widget-image widget-image-xs">
                   <img src="img/placeholders/photos/photo1.jpg" alt="image">
