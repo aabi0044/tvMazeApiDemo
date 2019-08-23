@@ -39,10 +39,10 @@ searchResult;
 
   getUser(){
 
-this.loading=true;
+// this.loading=true;
 this.api.getUser(localStorage.getItem('userId')).subscribe((res:any)=>{
 this.user=res;
-this.loading=false;
+// this.loading=false;
 console.log(this.user);
 })
   }
