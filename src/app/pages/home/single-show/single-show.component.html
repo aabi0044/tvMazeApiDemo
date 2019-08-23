@@ -54,7 +54,7 @@
           Seasons: <b style="color: steelblue" >{{seasons.length}}</b></span>
         <strong class="text-dark">Seasons</strong>
       </div>
-      <div class="widget-content text-right clearfix" *ngFor="let item of seasons;let i=index" (click)="openTree(i)">
+      <div class="widget-content text-right clearfix" *ngFor="let item of seasons;let i=index" (click)="openTree(i)" style="cursor: pointer">
         <div class="  pull-left">
           <!-- <i class="gi gi-airplane text-light-op"></i> -->
           <!-- <img [src]="item.image.original" *ngIf="item.image.original" class="img-responsive center-block" style="max-width: 50px;"> -->
@@ -92,7 +92,7 @@
       <table class="table table-striped table-borderless table-vcenter">
 
         <tbody *ngFor="let item of cast ;let i =index" >
-          <tr *ngIf="i<4" (click)="showPersonDetails(item)">
+          <tr *ngIf="i<4" (click)="showPersonDetails(item)" style="cursor: pointer">
 
             <td style="width: 80px;">
 
@@ -123,7 +123,7 @@
       <table class="table table-striped table-borderless table-vcenter">
 
         <tbody *ngFor="let item of crew ;let i=index">
-          <tr *ngIf="i<5" (click)="showPersonDetails(item)">
+          <tr *ngIf="i<5" (click)="showPersonDetails(item)" style="cursor: pointer">
 
             <td style="width: 80px;">
 
@@ -148,5 +148,6 @@
     </a>
 
   </div>
+  <ngx-loading [show]="loading"></ngx-loading>
 </div>
-<ngx-loading [show]="loading"></ngx-loading>
+

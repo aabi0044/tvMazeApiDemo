@@ -13,9 +13,9 @@
     <!-- Header Link -->
     <li class="hidden-xs animation-fadeInQuick" routerLink="/home/content">
 
-      <img class="sidelogo" src="../../../assets/img/tvm-header-logo.png">
+      <img class="sidelogo" src="../../../assets/img/tvm-header-logo.png" style="cursor: pointer;">
     </li>
-    <li class="dropdown" #menu (click)="openMenu()" style="    margin-left: 15px;">
+    <li class="dropdown" #menu (click)="openMenu()" style="    margin-left: 15px;cursor: pointer;">
       <a  class="dropdown-toggle" data-toggle="dropdown">
         <!-- <img src="img/placeholders/avatars/avatar9.jpg" alt="avatar"> -->
         <i class="gi gi-justify"></i>
@@ -68,14 +68,14 @@
     </li>
 
 
-    <li class="dropdown">
+    <li class="dropdown" style="cursor: pointer;">
       <a routerLink="/login" class="dropdown-toggle" *ngIf="!user" data-toggle="dropdown" aria-expanded="false">
         <i class="hi hi-log_out"></i>
         Login
       </a>
 
     </li>
-    <li class="dropdown">
+    <li class="dropdown" style="cursor: pointer;">
 
       <a (click)="logOut()" *ngIf="user" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
         <i class="hi hi-log_out"></i> Logout
