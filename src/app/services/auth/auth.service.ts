@@ -20,4 +20,10 @@ export class AuthService {
     console.log("object");
     this.afAuth.auth.signOut()
   }
+  isLogedIn(){
+    let res;
+    res=this.afAuth.auth.currentUser;
+
+   return res;
+  }
 }

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule,CanActivate  } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
@@ -11,7 +11,8 @@ import { Content } from '@angular/compiler/src/render3/r3_ast';
 import { ContentComponent } from './pages/home/content/content.component';
 import { CastAndCrewComponent } from './pages/home/single-show/cast-and-crew/cast-and-crew.component';
 
-
+import{AuthguardService}from './services/authguard/authguard.service';
+import { from } from 'rxjs';
 const routes: Routes = [ {
   path: '',
   pathMatch: 'full',
@@ -22,19 +23,23 @@ const routes: Routes = [ {
   component:HomeComponent,children:[
     {
       path:'people/:id',
-      component:PeopleComponent
+      component:PeopleComponent,
+      canActivate: [AuthguardService]
     },
     {
       path:'shows',
-      component:ShowsComponent
+      component:ShowsComponent,
+      canActivate: [AuthguardService]
     },
     {
       path:'show-details/:id',
-      component:SingleShowComponent
+      component:SingleShowComponent,
+      canActivate: [AuthguardService]
     },
     {
       path:'cast-and-crew/:id',
-      component:CastAndCrewComponent
+      component:CastAndCrewComponent,
+      canActivate: [AuthguardService]
     },
     {
       path:'content',
