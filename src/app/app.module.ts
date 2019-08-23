@@ -28,6 +28,9 @@ import { PeopleComponent } from './pages/home/people/people.component';
 import { ShowsComponent } from './pages/home/shows/shows.component';
 import { SingleShowComponent } from './pages/home/single-show/single-show.component';
 import { ContentComponent } from './pages/home/content/content.component';
+import { CastAndCrewComponent } from './pages/home/single-show/cast-and-crew/cast-and-crew.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +43,10 @@ import { ContentComponent } from './pages/home/content/content.component';
     PeopleComponent,
     ShowsComponent,
     SingleShowComponent,
-    ContentComponent
+    ContentComponent,
+    CastAndCrewComponent,
+
+
   ],
   imports: [
     BrowserModule,

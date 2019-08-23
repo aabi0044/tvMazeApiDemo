@@ -9,6 +9,7 @@ import { ShowsComponent } from './pages/home/shows/shows.component';
 import { SingleShowComponent } from './pages/home/single-show/single-show.component';
 import { Content } from '@angular/compiler/src/render3/r3_ast';
 import { ContentComponent } from './pages/home/content/content.component';
+import { CastAndCrewComponent } from './pages/home/single-show/cast-and-crew/cast-and-crew.component';
 
 
 const routes: Routes = [ {
@@ -30,6 +31,10 @@ const routes: Routes = [ {
     {
       path:'show-details/:id',
       component:SingleShowComponent
+    },
+    {
+      path:'cast-and-crew/:id',
+      component:CastAndCrewComponent
     },
     {
       path:'content',

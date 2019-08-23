@@ -1,0 +1,51 @@
+<div class="subpage_title_block" *ngIf="this.showDetail">
+    <a > <img itemprop="image" class="poster" height="98" width="67"  [src]="showDetail.image.original">
+    </a>  <div class="subpage_title_block__right-column">
+          <div class="parent">
+            <h3 itemprop="name" style="margin-left: 10px " class="heading">
+    <a  itemprop="url">{{showDetail.name}}</a>             <span class="nobr">
+
+                 </span>
+            </h3>
+          </div>
+
+          <h1 class="header" style="margin-left: 10px ">Full Cast &amp; Crew</h1>
+        <div id="full_cast_title_pro_link" class="pro_title_link_with_border">
+    <a href="https://pro.imdb.com/title/tt1475582?rf=cons_tt_sp_cc&amp;ref_=cons_tt_sp_cc" class="pro_title_href">
+
+    </a>    </div>
+      </div>
+    </div>
+
+    <div>
+        <form action="page_ready_search_results.html" method="post" class="navbar-form-custom">
+            <input type="text" id="top-search" (input)="search($event.target.value)" name="top-search" style="width:500px" class="form-control" placeholder="Search  Cast..">
+        </form>
+    </div>
+    <div>
+    <table class="table table-striped table-borderless table-vcenter">
+
+        <tbody style="    border: 1px outset;
+        border-style: solid;">
+          <tr *ngFor="let item of crew" (click)="showDetails(item.id)">
+
+            <td style="width: 80px;" class="text-left">
+
+              <img [src]="item.images" alt="Image" class="img-responsive center-block" style="max-width: 50px;margin-left: 0px">
+
+            </td>
+            <td style="width: 80px;" class="text-center">
+              <!-- <input type="text" class="form-control text-center" value="1"> -->
+              <p style="margin:0px ;" *ngIf="item.person"> {{item.person.name}}</p>
+              <p style="margin:0px ;" *ngIf="item.character"> {{item.character.name}}</p>
+            </td>
+            <td class="text-center">
+                <p style="margin:0px ;color:rgb(14, 70, 14)" *ngIf="item.type" > {{item.type}}</p>
+                <p style="margin:0px ;color:blueviolet" *ngIf="!item.type" > Cast</p>
+            </td>
+
+          </tr>
+
+        </tbody>
+      </table>
+    </div>

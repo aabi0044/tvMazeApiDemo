@@ -91,8 +91,8 @@
       </div>
       <table class="table table-striped table-borderless table-vcenter">
 
-        <tbody>
-          <tr *ngFor="let item of cast" (click)="showPersonDetails(item.id)">
+        <tbody *ngFor="let item of cast ;let i =index" >
+          <tr *ngIf="i<4" (click)="showPersonDetails(item.id)">
 
             <td style="width: 80px;">
 
@@ -111,6 +111,7 @@
 
         </tbody>
       </table>
+      <button type="button" (click)="fullCast()"  class="btn btn-block btn-primary">See full cast and crew</button>
     </a>
   </div>
   <div class="col-sm-12 col-lg-12" style="    padding: 0px 0px 0px 0px;">
@@ -121,8 +122,8 @@
       </div>
       <table class="table table-striped table-borderless table-vcenter">
 
-        <tbody>
-          <tr *ngFor="let item of crew" (click)="showPersonDetails(item.id)">
+        <tbody *ngFor="let item of crew ;let i=index">
+          <tr *ngIf="i<5" (click)="showPersonDetails(item.id)">
 
             <td style="width: 80px;">
 
@@ -143,7 +144,9 @@
 
         </tbody>
       </table>
+      <button (click)="fullCast()" type="button" style="margin-bottom: 35px !important" class="btn btn-block btn-primary">See full cast and crew</button>
     </a>
+
   </div>
 </div>
 <ngx-loading [show]="loading"></ngx-loading>

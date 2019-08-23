@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef, ViewChild, Renderer, ViewChildren } from '@angular/core';
 import { ApiService } from 'src/app/services/api/api.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -20,7 +20,8 @@ export class SingleShowComponent implements OnInit {
   loading=false;
   open;
 
-  constructor(private api: ApiService, private route: ActivatedRoute,public renderer: Renderer) {
+  constructor(private api: ApiService, private route: ActivatedRoute,public renderer: Renderer,
+    private router:Router) {
     this.showId = this.route.snapshot.paramMap.get('id');
     // console.log(this.showId);
     // this.getShow(this.showId);
@@ -126,5 +127,8 @@ export class SingleShowComponent implements OnInit {
   }
   openTree(index){
 this.open=index
+  }
+  fullCast(){
+this.router.navigate(['/home/cast-and-crew/'+this.showId]);
   }
 }
