@@ -1,94 +1,111 @@
 <header class="navbar navbar-inverse navbar-fixed-top">
   <!-- Left Header Navigation -->
   <ul class="nav navbar-nav-custom">
-      <!-- Main Sidebar Toggle Button -->
-      <!-- <li>
+    <!-- Main Sidebar Toggle Button -->
+    <!-- <li>
           <a href="javascript:void(0)" onclick="App.sidebar('toggle-sidebar');this.blur();">
               <i class="fa fa-ellipsis-v fa-fw animation-fadeInRight" id="sidebar-toggle-mini"></i>
               <i class="fa fa-bars fa-fw animation-fadeInRight" id="sidebar-toggle-full"></i>
           </a>
       </li> -->
-      <!-- END Main Sidebar Toggle Button -->
+    <!-- END Main Sidebar Toggle Button -->
 
-      <!-- Header Link -->
-      <li class="hidden-xs animation-fadeInQuick">
+    <!-- Header Link -->
+    <li class="hidden-xs animation-fadeInQuick">
 
-          <img class="sidelogo" src="../../../assets/img/tvm-header-logo.png">
-      </li>
-      <li class="dropdown" #menu (click)="openMenu()" style="    margin-left: 15px;">
-        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
-            <!-- <img src="img/placeholders/avatars/avatar9.jpg" alt="avatar"> -->
-            <i class="gi gi-justify"></i>
-            Menu
+      <img class="sidelogo" src="../../../assets/img/tvm-header-logo.png">
+    </li>
+    <li class="dropdown" #menu (click)="openMenu()" style="    margin-left: 15px;">
+      <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+        <!-- <img src="img/placeholders/avatars/avatar9.jpg" alt="avatar"> -->
+        <i class="gi gi-justify"></i>
+        Menu
 
-        </a>
-        <ul class="dropdown-menu dropdown-menu-right">
-            <li class="dropdown-header">
-                <strong>Choose Menu</strong>
-            </li>
-            <li>
-                <a href="page_app_email.html">
-                    <i class="fa fa-user fa-fw pull-right"></i>
-                    People
-                </a>
-            </li>
-            <li>
-                <a href="page_app_social.html">
-                    <!-- <i class="fas fa-photo-video  pull-right"></i> -->
-                    <i class="fa fa-television pull-right"></i>
-                    <!-- <i class="fa fa-pencil-square fa-fw pull-right"></i> -->
-                    Shows
-                </a>
-            </li>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-right">
+        <li class="dropdown-header">
+          <strong>Choose Menu</strong>
+        </li>
+        <li>
+          <a href="page_app_email.html">
+            <i class="fa fa-user fa-fw pull-right"></i>
+            People
+          </a>
+        </li>
+        <li>
+          <a href="page_app_social.html">
+            <!-- <i class="fas fa-photo-video  pull-right"></i> -->
+            <i class="fa fa-television pull-right"></i>
+            <!-- <i class="fa fa-pencil-square fa-fw pull-right"></i> -->
+            Shows
+          </a>
+        </li>
 
-        </ul>
+      </ul>
     </li>
     <li>
-        <form action="page_ready_search_results.html" method="post" class="navbar-form-custom">
-            <input type="text" id="top-search" (input)="onSearchChange($event.target.value)" name="top-search" class="form-control" placeholder="Search shows..">
-        </form>
+      <form action="page_ready_search_results.html" method="post" class="navbar-form-custom">
+        <input type="text" id="top-search" (input)="onSearchChange($event.target.value)" name="top-search"
+          class="form-control" placeholder="Search shows..">
+        <div *ngFor="let item of searchResult;let i=index">
+            <div class="search" class="celwidget" cel_widget_id="SuggestionSearchWidget"
+            style="left: 140px; top: 38px; width: 534px; display: block;" *ngIf="i<11">
+         {{item.name}}
+            <div class="navbar-suggestionsearch__search-result">
+           </div>
+
+
+
+
+
+
+          </div>
+
+        </div>
+
+      </form>
     </li>
-      <!-- END Header Link -->
+    <!-- END Header Link -->
   </ul>
   <!-- END Left Header Navigation -->
 
   <!-- Right Header Navigation -->
   <ul class="nav navbar-nav-custom pull-right">
-      <!-- Search Form -->
+    <!-- Search Form -->
 
-      <!-- END Search Form -->
+    <!-- END Search Form -->
 
-      <!-- Alternative Sidebar Toggle Button -->
+    <!-- Alternative Sidebar Toggle Button -->
 
-      <!-- END Alternative Sidebar Toggle Button -->
-      <li class="dropdown">
-          <a routerLink="/login" class="dropdown-toggle" *ngIf="user" data-toggle="dropdown" aria-expanded="false">
-            <i class="gi gi-user"></i>
-            Welcome {{user.name | uppercase}}
-          </a>
+    <!-- END Alternative Sidebar Toggle Button -->
+    <li class="dropdown">
+      <a routerLink="/login" class="dropdown-toggle" *ngIf="user" data-toggle="dropdown" aria-expanded="false">
+        <i class="gi gi-user"></i>
+        Welcome {{user.name | uppercase}}
+      </a>
 
-      </li>
+    </li>
 
 
-      <li class="dropdown">
-        <a routerLink="/login" class="dropdown-toggle" *ngIf="!user" data-toggle="dropdown" aria-expanded="false">
-          <i class="hi hi-log_out"></i>
-          Login
-        </a>
+    <li class="dropdown">
+      <a routerLink="/login" class="dropdown-toggle" *ngIf="!user" data-toggle="dropdown" aria-expanded="false">
+        <i class="hi hi-log_out"></i>
+        Login
+      </a>
 
     </li>
     <li class="dropdown">
 
       <a href="javascript:void(0)" *ngIf="user" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-          <i class="hi hi-log_out"></i>  Logout
+        <i class="hi hi-log_out"></i> Logout
       </a>
 
-  </li>
-      <!-- User Dropdown -->
+    </li>
+    <!-- User Dropdown -->
 
 
-      <!-- END User Dropdown -->
+    <!-- END User Dropdown -->
   </ul>
   <!-- END Right Header Navigation -->
 </header>
-<ngx-loading [show]="loading" ></ngx-loading>
+<ngx-loading [show]="loading"></ngx-loading>

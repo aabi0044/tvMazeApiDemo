@@ -12,6 +12,7 @@ export class HeaderComponent implements OnInit {
   user;
 loading=false;
 shows;
+searchResult;
   ngOnInit() {
     this.getShows();
     if(localStorage.getItem('userId')!=undefined){
@@ -50,10 +51,17 @@ console.log(this.user);
   }
   onSearchChange(event){
 console.log(event);
-let a = this.shows.filter((elem)=>{
-  return elem.name.toLowerCase().includes(event.toLowerCase())
-})
-console.log(a);
-  }
+console.log(event.length);
+if(event.length==0){
+  this.searchResult=[];
+}else{
+  let a = this.shows.filter((elem)=>{
+    return elem.name.toLowerCase().includes(event.toLowerCase())
+  })
+  this.searchResult=a;
+  console.log(a);
+    }
+}
+
 
 }

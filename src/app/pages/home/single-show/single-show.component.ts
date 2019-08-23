@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, Renderer, ViewChildren } from '@angular/core';
 import { ApiService } from 'src/app/services/api/api.service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -9,63 +9,79 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./single-show.component.scss']
 })
 export class SingleShowComponent implements OnInit {
+  @ViewChildren('tree') tree: ElementRef;
   showId;
   allEpisodes: Array<any> = [];
   showDetail;
   seasons;
   cast;
   crew;
+  display='none';
+  loading=false;
+  open;
 
-  constructor(private api: ApiService, private route: ActivatedRoute) {
+  constructor(private api: ApiService, private route: ActivatedRoute,public renderer: Renderer) {
     this.showId = this.route.snapshot.paramMap.get('id');
     // console.log(this.showId);
     // this.getShow(this.showId);
   }
 
   ngOnInit() {
-    this.getShow(this.showId)
+    this.getShow(this.showId);
+    this.getShowCast(this.showId);
+    this.getShowCrew(this.showId);
+    this.getShowSeasons(this.showId);
   }
   getShow(id) {
+    this.loading=true;
     this.api.getSingleShow(id).subscribe(res => {
       console.log(res);
       this.showDetail = res;
-      this.getShowAKA(this.showId);
-      this.getShowCast(this.showId);
-      this.getShowCrew(this.showId);
-      this.getShowSeasons(this.showId);
+      // this.getShowAKA(this.showId);
+
     })
   }
   getShowSeasons(id) {
-    this.allEpisodes = [];
+
+    let Episodes = [];
     this.api.getShowSeasons(id).subscribe((res: any) => {
       console.log(res);
       this.seasons = res;
       this.seasons.map((elem) => {
-        if (elem.image == null) {
-          return elem['images'] = '../../../../assets//img/dummy.jpg';
-        }
-        else{
-          return elem['images'] = elem.image.original;
-        }
-      })
-      res.forEach(elements => {
-        this.api.getSeasonEpisodes(elements.id).subscribe((resp: any) => {
-          console.log(resp);
-          resp.map((elem) => {
+        this.api.getSeasonEpisodes(elem.id).subscribe((responce:any)=>{
+
+          responce.map((elem) => {
             if (elem.image == null) {
+
               return elem['images'] = '../../../../assets//img/dummy.jpg';
             }
             else{
               return elem['images'] = elem.image.original;
             }
           })
-          resp.forEach(element => {
+          responce.forEach(element => {
             this.allEpisodes.push(element);
           });
 
+          if (elem.image == null) {
+
+            let a= elem['images'] = '../../../../assets//img/dummy.jpg';
+            let b = elem['episodes']=responce
+            return {a,b}
+          }
+          else{
+            let a= elem['images'] = elem.image.original;
+            let b = elem['episodes']=responce;
+            return{a,b}
+          }
+
+
         })
 
-      });
+      })
+
+
+      this.allEpisodes=Episodes;
       console.log(this.allEpisodes);
 
 
@@ -88,6 +104,7 @@ export class SingleShowComponent implements OnInit {
   getShowCrew(id) {
     this.api.getShowCrew(id).subscribe(res => {
       console.log(res);
+      this.loading=false;
       this.crew = res;
       this.crew.map((elem) => {
         if (elem.person.image == null) {
@@ -107,5 +124,7 @@ export class SingleShowComponent implements OnInit {
   showPersonDetails(id) {
 
   }
-
+  openTree(index){
+this.open=index
+  }
 }
