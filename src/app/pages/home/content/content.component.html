@@ -43,7 +43,7 @@
 
 
 
-      <div class="col-md-4" *ngFor="let item of shows " (click)="showDetails(item.id)">
+      <div class="col-md-4" *ngFor="let item of shows | paginate: {id:'user', itemsPerPage: 15, currentPage: p}  " (click)="showDetails(item.id)">
           <a  class="widget animation-fadeInQuick" data-toggle="modal">
               <div class="widget-image widget-image-xs" >
                   <img [src]="item.image.original" alt="image"  class="img" >
@@ -69,9 +69,10 @@
                       </div>
                   </div>
               </div>
+
           </a>
       </div>
 
 
-
+      <pagination-controls id="user" (pageChange)="p = $event"></pagination-controls>
 </div>

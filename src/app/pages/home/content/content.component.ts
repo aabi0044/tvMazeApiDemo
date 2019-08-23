@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 export class ContentComponent implements OnInit {
 shows;
 topRated;
+p: number = 1;
+q:number=1;
   constructor(private api:ApiService,private router:Router) { }
 
   ngOnInit() {
