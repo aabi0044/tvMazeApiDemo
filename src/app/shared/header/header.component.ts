@@ -1,5 +1,7 @@
 import { Component, OnInit, ElementRef, ViewChild, Renderer } from '@angular/core';
 import { ApiService } from 'src/app/services/api/api.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,13 +10,14 @@ import { ApiService } from 'src/app/services/api/api.service';
 })
 export class HeaderComponent implements OnInit {
   @ViewChild('menu', {static: false}) menu: ElementRef;
-  constructor(public renderer: Renderer,private api:ApiService) { }
+  constructor(public renderer: Renderer,private api:ApiService,private auth:AuthService,
+    private router:Router) { }
   user;
 loading=false;
 shows;
 searchResult;
   ngOnInit() {
-    this.getShows();
+    // this.getShows();
     if(localStorage.getItem('userId')!=undefined){
       this.getUser();
 
@@ -43,25 +46,14 @@ this.loading=false;
 console.log(this.user);
 })
   }
-  getShows(){
-    this.api.getAllShows().subscribe(res=>{
-      this.shows=res;
-      console.log(this.shows);
-    })
+  logOut(){
+    this.auth.logout();
+    localStorage.clear();
+
+    this.getUser();
+    this.router.navigate(['/home/content'])
+
   }
-  onSearchChange(event){
-console.log(event);
-console.log(event.length);
-if(event.length==0){
-  this.searchResult=[];
-}else{
-  let a = this.shows.filter((elem)=>{
-    return elem.name.toLowerCase().includes(event.toLowerCase())
-  })
-  this.searchResult=a;
-  console.log(a);
-    }
-}
 
 
 }

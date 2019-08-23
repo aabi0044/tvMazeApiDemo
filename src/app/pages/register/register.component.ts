@@ -33,7 +33,7 @@ loading=false;
 
           this.loading=false;
           this.toaster.success('Registered Successfully ..')
-          this.router.navigate(['/home'])
+          this.router.navigate(['/home/content'])
         })
 
 

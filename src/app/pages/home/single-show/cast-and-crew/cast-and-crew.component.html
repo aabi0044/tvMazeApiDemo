@@ -19,7 +19,7 @@
 
     <div>
         <form action="page_ready_search_results.html" method="post" class="navbar-form-custom">
-            <input type="text" id="top-search" (input)="search($event.target.value)" name="top-search" style="width:500px" class="form-control" placeholder="Search  Cast..">
+            <input type="text" id="top-search" (input)="search($event.target.value)" name="top-search" style="width:500px;border: 1px solid" class="form-control" placeholder="Search Cast and Crew..">
         </form>
     </div>
     <div>
@@ -27,7 +27,7 @@
 
         <tbody style="    border: 1px outset;
         border-style: solid;">
-          <tr *ngFor="let item of crew" (click)="showDetails(item.id)">
+          <tr *ngFor="let item of crew" (click)="showDetails(item)">
 
             <td style="width: 80px;" class="text-left">
 

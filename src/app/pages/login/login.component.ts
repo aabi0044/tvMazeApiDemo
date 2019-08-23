@@ -25,7 +25,7 @@ loading=false;
         localStorage.setItem('userId',res.user.uid);
         this.loading=false;
         this.toaster.success('Login Successfully..')
-        this.router.navigate(['/home'])
+        this.router.navigate(['/home/content'])
 
 console.log(res.user);
       }).catch((err)=>{

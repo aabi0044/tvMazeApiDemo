@@ -123,7 +123,15 @@ export class SingleShowComponent implements OnInit {
     })
   }
   showPersonDetails(id) {
-
+    console.log(id);
+    if(id.person){
+    console.log(id.person.id);
+    this.router.navigate(['/home/people/'+id.person.id])
+    }
+    else if(id.character){
+      console.log(id.character.id);
+      this.router.navigate(['/home/people/'+id.character.id])
+    }
   }
   openTree(index){
 this.open=index

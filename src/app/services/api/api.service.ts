@@ -37,8 +37,8 @@ export class ApiService {
     return this.http.get<any>('http://api.tvmaze.com/seasons/'+id+'/episodes');
   }
 
-  getAllPeople(){
-    return this.http.get<any>('http://api.tvmaze.com/people');
+  getSinglePeople(id){
+    return this.http.get<any>('http://api.tvmaze.com/people/'+id);
   }
   getUpdates(){
     return this.http.get<any>('http://api.tvmaze.com/shows/1/crew');

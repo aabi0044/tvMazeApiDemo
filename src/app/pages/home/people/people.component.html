@@ -1,1 +1,42 @@
-<p>people works!</p>
+
+<div class="col-lg-12" style="margin-top: 55px">
+    <div class="widget">
+        <div class="widget-content themed-background-flat text-center">
+            <a >
+                <img *ngIf="person.image" [src]="person.image.original" alt="avatar" class="img-circle img-thumbnail img-thumbnail-avatar-2x">
+                <img *ngIf="!person.image" src="../../../../assets/img/user.png" alt="avatar" class="img-circle img-thumbnail img-thumbnail-avatar-2x">
+            </a>
+        </div>
+        <div class="widget-content themed-background-muted text-center">
+            <div class="btn-group">
+               <span> {{person.name}}</span>
+            </div>
+        </div>
+        <div class="widget-content">
+            <div class="row text-center">
+                <div class="col-xs-4">
+                    <h3 class="widget-heading"><small>Gender</small><br>
+
+                      <a  class="themed-color-flat" *ngIf="person.gender">{{person.gender}}</a>
+                      <a  class="themed-color-flat" *ngIf="!person.gender">Null</a>
+                    </h3>
+                </div>
+                <div class="col-xs-4">
+                    <h3 class="widget-heading"><small>Birthday</small><br>
+                      <a  class="themed-color-flat" *ngIf="person.birthday">{{person.birthday}}</a>
+                      <a  class="themed-color-flat" *ngIf="!person.birthday">Null</a>
+                    </h3>
+                </div>
+                <div class="col-xs-4">
+                    <h3 class="widget-heading"><small>Country</small><br>
+                      <a  class="themed-color-flat" *ngIf="person.country">{{person.country.name}}</a>
+                      <a  class="themed-color-flat" *ngIf="!person.country">Null</a>
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<ngx-loading [show]="loading"></ngx-loading>
+

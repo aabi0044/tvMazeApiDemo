@@ -21,7 +21,7 @@ const routes: Routes = [ {
   path:'home',
   component:HomeComponent,children:[
     {
-      path:'people',
+      path:'people/:id',
       component:PeopleComponent
     },
     {

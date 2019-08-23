@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api/api.service';
 
 @Component({
@@ -15,7 +15,7 @@ showDetail;
 loading=false;
 backUp;
 
-  constructor(private route:ActivatedRoute,private api:ApiService) {
+  constructor(private route:ActivatedRoute,private api:ApiService,private router :Router) {
     this.showId = this.route.snapshot.paramMap.get('id');
     console.log(this.showId);
    }
@@ -70,8 +70,16 @@ backUp;
     })
   }
 
-  showDetails(){
-
+  showDetails(id){
+console.log(id);
+if(id.person){
+console.log(id.person.id);
+this.router.navigate(['/home/people/'+id.person.id])
+}
+else if(id.character){
+  console.log(id.character.id);
+  this.router.navigate(['/home/people/'+id.character.id])
+}
   }
   search(event){
     if(event.length!=0){

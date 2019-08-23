@@ -32,9 +32,5 @@ getShows(){
     console.log(res);
   })
 }
-getPeople(){
-  this.api.getAllPeople().subscribe(res=>{
-    console.log(res);
-  })
-}
+
 }
