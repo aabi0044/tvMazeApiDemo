@@ -43,4 +43,7 @@ export class ApiService {
   getUpdates(){
     return this.http.get<any>('http://api.tvmaze.com/shows/1/crew');
   }
+  submitQuery(data){
+    return this.afs.collection('quries').add(data);
+  }
 }

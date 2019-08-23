@@ -1,4 +1,6 @@
-<div id="login-container" style="top: -38px;">
+
+<app-header></app-header>
+<div id="login-container" style="top: 15px;">
     <!-- Login Header -->
     <h1 class="h2 text-light text-center push-top-bottom animation-slideDown" style="margin-bottom: 5px">
         <img src="../../../assets/img/tvm-header-logo.png">
@@ -28,7 +30,7 @@
 
           <div class="form-group">
                 <div class="col-xs-12">
-                    <input type="text" [(ngModel)]="email" id="login-email" name="login-email" class="form-control" placeholder="Your email..">
+                    <input type="text" [(ngModel)]="email" id="login-email" name="email" class="form-control" placeholder="Your email..">
                 </div>
             </div>
             <div class="form-group">
@@ -38,7 +40,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-xs-12">
-                        <textarea id="textarea-message" name="textarea-message" rows="8" class="form-control"></textarea>
+                        <textarea id="textarea-message" [(ngModel)]="message" name="textarea-message" rows="8" class="form-control"></textarea>
 
                     </div>
                     </div>
@@ -56,9 +58,10 @@
 
     <!-- Footer -->
     <footer class="text-muted text-center animation-pullUp">
-        <small><span id="year-copy">2019</span> © <a >TVMaze</a></small>
+        <small><span id="year-copy"> (Abdulah)2019</span> © <a >TVMaze</a></small>
     </footer>
     <!-- END Footer -->
 </div>
 
 <ngx-loading [show]="loading" ></ngx-loading>
+<!-- <app-footer></app-footer> -->
